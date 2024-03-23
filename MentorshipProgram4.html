@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Courses</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-...your-sha-here..." crossorigin="anonymous" />
+      
+        <style>
+            .tick-box {
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                background: white;
+                border-radius: 9999px;
+                border: 1px black solid;
+                cursor: pointer;
+            }
+            .tick-box::after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background: black;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: none; /* Initially hide the dot */
+            }
+
+            .tick-box.tick::after {
+                display: block; /* Show the dot if the tick-box has the tick class */
+            }
+
+            .button-container {
+                position: absolute;
+                left: 439px;
+                top: 884px;
+            }
+
+            .payment-button {
+                width: 243px;
+                height: 70px;
+                background: #A0F4AE;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 10px;
+                border: 1px black solid;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                color: black;
+            }
+
+            .loading {
+                pointer-events: none; /* Disable clicking while loading */
+                opacity: 0.5; /* Dim the button while loading */
+            }
+
+            .success-message {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #ffffff; 
+                color: rgb(0, 0, 0); 
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                text-align: center; /* Center-align the content */
+            }
+
+            .success-message p {
+                margin-bottom: 50px; /* Increase margin-bottom for space between message and button */
+                font-size: 22px; /* Adjust font size */
+            }
+
+            .success-message button {
+                background-color: #A0F4AE; 
+                border: 1px black solid;
+                color: black;
+                padding: 10px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: block; /* Change display to block */
+                position: fixed; /* Position fixed */
+                bottom: 20px; /* Adjust bottom position */
+                right: 20px; /* Adjust right position */
+                margin-top: 15px;
+                font-size: 14px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                font-weight: bold;
+            }
+
+            .success-message button:hover {
+                background-color: rgb(63, 141, 60); /* Darken the button on hover */
+            }
+    </style>
+
+    </head>
+
+    <body>
+        <div style="width: 1512px; height: 1000px; position: relative; background: white">
+            <a href="investment.html">
+                <div style="left: 738px; top: 33px; position: absolute; text-align: center; color: black; font-size: 30px; font-family: Inter; font-weight: 700; word-wrap: break-word">Investment</div>
+              </a>
+              <a href="saving.html">
+                <div style="left: 987px; top: 33px; position: absolute; text-align: center; color: black; font-size: 30px; font-family: Inter; font-weight: 700; word-wrap: break-word">Saving</div>
+                </a>
+                <a href="ContactUs.html">
+                  <div style="left: 1170px; top: 34px; position: absolute; text-align: center; color: black; font-size: 30px; font-family: Inter; font-weight: 700; word-wrap: break-word">Contact Us</div>
+                </a>
+                <div style="width: 147px; height: 53px; left: 521px; top: 25px; position: absolute; background: rgba(88.07, 169.78, 245.21, 0.50); border-radius: 52px"></div>
+                <a href="LoanMain.html">
+                <div style="left: 393px; top: 33px; position: absolute; text-align: center; color: black; font-size: 30px; font-family: Inter; font-weight: 700; word-wrap: break-word">Loan</div>
+                </a>
+
+                <a href="HomePage.html">
+                  <div style="left: 223px; top: 33px; position: absolute; text-align: center; color: black; font-size: 30px; font-family: Inter; font-weight: 700; word-wrap: break-word">Home</div>
+                </a>
+            <div style="left: 128px; top: 168px; position: absolute; text-align: center; color: black; font-size: 40px; font-family: Inter; font-weight: 700; word-wrap: break-word">Your Payment</div>
+            
+            <div class="button-container">
+                <a href="#" class="payment-button" id="paymentButton"></a>
+            </div>
+
+            <div style="left: 533px; top: 899px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Pay</div>
+            
+            <a href="MentorshipProgram.html" style="text-decoration: none;">
+            <div style="width: 243px; height: 70px; left: 142px; top: 884px; position: absolute; background: #F69292; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px; border: 1px black solid"></div>
+            </a>
+            
+            <div style="left: 210px; top: 899px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Cancel</div>
+            <div style="width: 44.25px; height: 44.25px; left: 1409px; top: 33px; position: absolute;">
+                <i class="fas fa-search" style="font-size: 30px; color: black;"></i>
+              </div>             
+            <div style="left: 128px; top: 259px; position: absolute; text-align: center; color: black; font-size: 35px; font-family: Inter; font-weight: 700; word-wrap: break-word">Select your payment method</div>
+            <div style="width: 147px; height: 53px; left: 520px; top: 24px; position: absolute; background: rgba(88.07, 169.78, 245.21, 0.50); border-radius: 52px"></div>
+            <a href="CourseMain.html">
+                <div style="left: 548px; top: 33px; position: absolute; text-align: center; color: black; font-size: 30px; font-family: Inter; font-weight: 700; word-wrap: break-word">Course</div>
+                 </a>            
+                 <div style="width: 1074px; height: 102px; left: 128px; top: 352px; position: absolute; background: #E6F1FE; border-radius: 15px"></div>
+            <div style="left: 359px; top: 388px; position: absolute; text-align: center; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word">Online Banking</div>
+            <div style="width: 96px; height: 51px; left: 227px; top: 377px; position: absolute; background: white"></div>
+            <img style="width: 80px; height: 39.20px; left: 235px; top: 383px; position: absolute" src="Image/FPX.png" />
+            <div style="width: 1074px; height: 102px; left: 128px; top: 474px; position: absolute; background: #E6F1FE; border-radius: 15px"></div>
+            <div style="left: 359px; top: 510px; position: absolute; text-align: center; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word">Credit / Debit Card</div>
+            <img style="width: 80px; height: 60px; left: 235px; top: 495px; position: absolute" src="Image/Card.jpg" />
+            <div style="width: 1074px; height: 102px; left: 128px; top: 596px; position: absolute; background: #E6F1FE; border-radius: 15px"></div>
+            <div style="left: 359px; top: 632px; position: absolute; text-align: center; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word">Touch ‘n Go eWallet</div>
+            <img style="width: 85px; height: 84.65px; left: 232px; top: 605px; position: absolute" src="Image/TNG.png" />
+            <div style="left: 640px; top: 632px; position: absolute; text-align: center; color: black; font-size: 25px; font-family: Inter; font-weight: 400; word-wrap: break-word">[Linked] *2334</div>
+            
+            <div id="tick1" class="tick-box" style="left: 163px; top: 393px;"></div>
+            <div id="tick2" class="tick-box" style="left: 163px; top: 515px;"></div>
+            <div id="tick3" class="tick-box" style="left: 163px; top: 637px;"></div>
+            
+            <script>
+                const tickBoxes = document.querySelectorAll('.tick-box');
+            
+                tickBoxes.forEach(tickBox => {
+                    tickBox.addEventListener('click', () => {
+                        // Remove tick class from all tick-boxes
+                        tickBoxes.forEach(box => {
+                            box.classList.remove('tick');
+                        });
+            
+                        // Add tick class to the clicked tick-box
+                        tickBox.classList.add('tick');
+                    });
+                });
+            </script>
+            <div class="success-message" id="successMessage">
+                <p>Your payment was successful!</p>
+                <button onclick="navigateToHomePage()">Ok</button>
+            </div>
+            
+            <script>
+                function navigateToHomePage() {
+                    window.location.href = 'MentorshipProgram3.html'; // Replace 'HomePage.html' with your actual home page URL
+                }
+            
+                document.getElementById('paymentButton').addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default action of anchor tag
+                    const button = event.target;
+                    button.classList.add('loading'); // Add loading class to disable clicking and dim the button
+                    setTimeout(function() {
+                        button.classList.remove('loading'); // Remove loading class to enable clicking again
+                        document.getElementById('successMessage').style.display = 'block'; // Show success message
+                    }, 1500); // Simulate a 3-second delay for loading
+                });
+            </script>
+            
+          </div>
+    </body>
+</html>
